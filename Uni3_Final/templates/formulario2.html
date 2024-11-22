@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formu2" method="POST" action="{{ url_for('formu2') }}">
+            <h1 id="titulof2">Iniciar Sesion</h1>
+            <section class="labels2">
+            <label>Ingresa tu Nombre</label>
+            <input class="respuesta2" type="text" name="dato4" id="dato4">
+            <label>Ingresa tu Contraseña</label>
+            <input class="respuesta2" type="password" name="dato5" id="dato5">
+            <button id="botonf2" type="submit">Verificar</button>
+        </section>
+            {% if resultado %}
+                <p>{{ resultado }}</p>
+            {% endif %}    
+        </form>
+
+    <a href="{{ url_for('main') }}"><button id="exit2">Regresar</button></a>
+
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+      <form id="formu1" method="POST" action="{{ url_for('formu1') }}">
+        <h1 id="titulof1">Calculo de Compras</h1>
+      <section class="labels1">
+        <label>Ingresa tu Nombre</label><br>
+        <input class="respuesta1" type="text" name="dato1" id="dato1"><br>
+        <label>Ingresa tu edad</label><br>
+        <input class="respuesta1" type="number" name="dato2" id="dato2"><br>
+        <label>Ingresa la cantidad de tarros a comprar</label><br>
+        <input class="respuesta1" type="number" name="dato3" id="dato3"><br>
+        <button id="botonf1" type="submit">Calcular</button>
+      </section>
+      {% if resultado %}
+        {% if resultado.error %}
+            <p class="error">{{ resultado.error }}</p>
+        {% else %}
+        <p class="respondido1">Nombre del cliente: {{ resultado.nombre }}</p>
+        <p class="respondido1">Total sin descuento: ${{ resultado.total_sin_descuento }}</p>
+        <p class="respondido1">El descuento es: ${{ resultado.descuento }}</p>
+        <p class="respondido1">El total a pagar es: ${{ resultado.total_con_descuento }}</p>
+        {% endif %}
+    {% endif %}
+      </form>
+
+      <a href="{{ url_for('main') }}"><button id="exit">Regresar</button></a>
+
+      
+    </body>
+</html>
